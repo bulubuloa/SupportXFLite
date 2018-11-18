@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportXFLite", "SupportXFLite\SupportXFLite.csproj", "{2D594775-8D82-46D8-ABDC-F896A6287C08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportXFLite.iOS", "SupportXFLite.iOS\SupportXFLite.iOS.csproj", "{9079034E-F7AE-41EC-87C2-452BDFCA328D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportXFLite.Droid", "SupportXFLite.Droid\SupportXFLite.Droid.csproj", "{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D594775-8D82-46D8-ABDC-F896A6287C08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D594775-8D82-46D8-ABDC-F896A6287C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D594775-8D82-46D8-ABDC-F896A6287C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D594775-8D82-46D8-ABDC-F896A6287C08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9079034E-F7AE-41EC-87C2-452BDFCA328D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9079034E-F7AE-41EC-87C2-452BDFCA328D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9079034E-F7AE-41EC-87C2-452BDFCA328D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9079034E-F7AE-41EC-87C2-452BDFCA328D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,58 @@
+﻿<Properties StartupConfiguration="{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}|Default">
+  <MonoDevelop.Ide.ItemProperties.SupportXFLite.iOS FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SupportXFLite/ViewModels/BaseViewModel.cs">
+    <Files>
+      <File FileName="SupportXFLite/Behaviors/BindableBehavior.cs" Line="6" Column="45" />
+      <File FileName="SupportXFLite/Behaviors/EventToCommandBehavior.cs" Line="128" Column="120" />
+      <File FileName="SupportXFLite/Behaviors/BehaviorsEventConverter.cs" Line="26" Column="1" />
+      <File FileName="SupportXFLite/Models/BindableBaseModel.cs" Line="13" Column="1" />
+      <File FileName="SupportXFLite/Models/BaseModel.cs" Line="4" Column="36" />
+      <File FileName="SupportXFLite/Models/API/Request/AESRequestBaseModel.cs" Line="16" Column="57" />
+      <File FileName="SupportXFLite/Models/API/Response/AESResponseBaseModel.cs" Line="4" Column="17" />
+      <File FileName="SupportXFLite/Models/API/Response/AESBlankResponse.cs" Line="4" Column="57" />
+      <File FileName="SupportXFLite/Models/API/Request/AESBlankRequest.cs" Line="11" Column="1" />
+      <File FileName="SupportXFLite/Models/AsyncCommand.cs" Line="19" Column="2" />
+      <File FileName="SupportXFLite/Controllers/API/IAPIService.cs" Line="20" Column="1" />
+      <File FileName="SupportXFLite/Controllers/API/APIServiceAES.cs" Line="129" Column="26" />
+      <File FileName="SupportXFLite/Controllers/HttpClient/HttpRequestExtensions.cs" Line="25" Column="1" />
+      <File FileName="SupportXFLite/Controllers/HttpClient/TimeoutHandler.cs" Line="42" Column="6" />
+      <File FileName="SupportXFLite/Controllers/Validations/IValidity.cs" Line="9" Column="1" />
+      <File FileName="SupportXFLite/Controllers/Validations/ValidatePoolObject.cs" Line="82" Column="10" />
+      <File FileName="SupportXFLite/Controllers/Validations/IValidationRule.cs" Line="11" Column="1" />
+      <File FileName="SupportXFLite/Controllers/Validations/Rules/IsMatchRule.cs" Line="31" Column="26" />
+      <File FileName="SupportXFLite/Controllers/Validations/Rules/IsNotNullOrEmptyRule.cs" Line="28" Column="1" />
+      <File FileName="SupportXFLite/Utils.cs" Line="12" Column="2" />
+      <File FileName="SupportXFLite/ViewModels/BaseViewModel.cs" Line="6" Column="41" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SupportXFLite" expanded="True">
+            <Node name="SupportXFLite" expanded="True">
+              <Node name="Behaviors" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="API" expanded="True" />
+                <Node name="HttpClient" expanded="True" />
+                <Node name="Validations" expanded="True">
+                  <Node name="Rules" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="ViewModels" expanded="True">
+                <Node name="BaseViewModel.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.SupportXFLite FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.SupportXFLite.Droid PreferredExecutionTarget="Android.Android_Accelerated_Nougat" FirstBuild="True" />
+</Properties>
