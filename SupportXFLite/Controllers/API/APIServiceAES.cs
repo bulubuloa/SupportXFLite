@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using SupportXFLite.Controllers.HttpClient;
 using SupportXFLite.Models.API.Request;
 using SupportXFLite.Models.API.Response;
 

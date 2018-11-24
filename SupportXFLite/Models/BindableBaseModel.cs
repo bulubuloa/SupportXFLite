@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace SupportXFLite.Models
 {
-    public class BindableBaseModel : BindableObject
+    public abstract class BindableBaseModel : BindableObject
     {
         public BindableBaseModel()
         {
