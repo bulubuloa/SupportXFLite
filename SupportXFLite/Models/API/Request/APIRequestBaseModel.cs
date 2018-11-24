@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace SupportXFLite.Models.API.Request
 {
-    public abstract class AESRequestBaseModel : BaseModel
+    public abstract class APIRequestBaseModel : BaseModel
     {
         [JsonIgnore]
         public string accessToken { set; get; }

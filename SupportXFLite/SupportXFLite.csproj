@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Compile Remove="Class1.cs" />
+    <Compile Remove="Controllers\API\APIServiceAES.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Behaviors\" />
@@ -21,9 +22,16 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Widgets\" />
     <Folder Include="DependencyServices\" />
+    <Folder Include="Controllers\DJPools\" />
+    <Folder Include="Controllers\Navigations\" />
+    <Folder Include="Controllers\API\Restful\" />
+    <Folder Include="ProjectArchitect\" />
+    <Folder Include="ProjectArchitect\AESProjects\" />
+    <Folder Include="ProjectArchitect\AESProjects\API\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Autofac" Version="4.8.1" />
   </ItemGroup>
 </Project>

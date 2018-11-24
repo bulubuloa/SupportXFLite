@@ -1,9 +1,10 @@
 ﻿using System;
 namespace SupportXFLite.Models.API.Response
 {
-    public class AESBlankResponse : AESResponseBaseModel
+    public class APIBlankResponse : APIResponseBaseModel
     {
-        public AESBlankResponse()
+
+        public APIBlankResponse()
         {
         }
     }

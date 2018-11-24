@@ -1,9 +1,9 @@
 ﻿using System;
 namespace SupportXFLite.Models.API.Request
 {
-    public class AESBlankRequest : AESRequestBaseModel
+    public class APIBlankRequest : APIRequestBaseModel
     {
-        public AESBlankRequest()
+        public APIBlankRequest()
         {
         }
     }

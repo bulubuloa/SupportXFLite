@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}|Default">
   <MonoDevelop.Ide.ItemProperties.SupportXFLite.iOS FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SupportXFLite/ViewModels/BaseViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SupportXFLite/Controllers/DJPools/BaseLocator.cs">
     <Files>
       <File FileName="SupportXFLite/Models/API/Request/AESBlankRequest.cs" Line="1" Column="1" />
       <File FileName="SupportXFLite/Models/API/Request/AESRequestBaseModel.cs" Line="17" Column="67" />
@@ -9,25 +9,26 @@
       <File FileName="SupportXFLite/Models/BindableBaseModel.cs" Line="13" Column="1" />
       <File FileName="SupportXFLite/Models/BaseModel.cs" Line="11" Column="1" />
       <File FileName="SupportXFLite/Models/AsyncCommand.cs" Line="19" Column="2" />
-      <File FileName="SupportXFLite/ViewModels/BaseViewModel.cs" Line="29" Column="36" />
+      <File FileName="SupportXFLite/ViewModels/BaseViewModel.cs" Line="33" Column="37" />
+      <File FileName="SupportXFLite/Controllers/DJPools/BaseLocator.cs" Line="15" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SupportXFLite" expanded="True">
             <Node name="SupportXFLite" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="HttpClient" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" selected="True" />
               </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="API" expanded="True">
                   <Node name="Request" expanded="True" />
                   <Node name="Response" expanded="True" />
                 </Node>
               </Node>
-              <Node name="ViewModels" expanded="True">
-                <Node name="BaseViewModel.cs" selected="True" />
-              </Node>
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Widgets" expanded="True" />
             </Node>
           </Node>
         </State>
