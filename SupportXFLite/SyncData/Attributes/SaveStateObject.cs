@@ -6,9 +6,12 @@ namespace SupportXFLite.SyncData.Attributes
     {
         public bool AllowSync { set; get; }
 
-        public SaveStateObject(bool _AllowSync)
+        public bool SaveAllProperty { set; get; }
+
+        public SaveStateObject()
         {
-            AllowSync = _AllowSync;
+            AllowSync = false;
+            SaveAllProperty = false;
         }
     }
 }

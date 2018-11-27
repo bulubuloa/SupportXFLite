@@ -82,8 +82,17 @@ namespace SupportXFLite.Controllers.Navigations
         protected virtual async Task InternalNavigateToAsync(Type viewModelType, object parameter, bool animate)
         {
             Page page = CreateAndBindPage(viewModelType, parameter);
+            var ViewModelOfPage = page.BindingContext as BaseViewModel;
+            page.Appearing += (object sender, EventArgs e) => {
+                ViewModelOfPage.OnViewAppearingAsync(page);
+            };
+            page.Disappearing += (object sender, EventArgs e) => {
+                ViewModelOfPage.OnViewDisappearingAsync(page);
+            };
+
             await NavigationMapping(page, viewModelType, parameter, animate);
-            await (page.BindingContext as BaseViewModel).InitializeAsync(parameter);
+               
+            await ViewModelOfPage.InitializeAsync(parameter);
         }
 
         protected Type GetPageTypeForViewModel(Type viewModelType)
