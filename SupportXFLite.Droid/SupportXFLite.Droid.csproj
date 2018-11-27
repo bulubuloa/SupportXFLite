@@ -115,11 +115,18 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\..\XFLite\packages\Xamarin.Forms.3.4.0.1008975\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="Rg.Plugins.Popup">
+      <HintPath>..\..\Rent2Own-Merchant\packages\Rg.Plugins.Popup.1.1.5.180\lib\MonoAndroid\Rg.Plugins.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.Droid">
+      <HintPath>..\..\Rent2Own-Merchant\packages\Rg.Plugins.Popup.1.1.5.180\lib\MonoAndroid\Rg.Plugins.Popup.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DependencyExtended\IFileHelperExtended.cs" />
+    <Compile Include="SupportXFLiteSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

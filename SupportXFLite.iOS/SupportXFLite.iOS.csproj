@@ -62,15 +62,21 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\XFLite\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Rg.Plugins.Popup">
+      <HintPath>..\..\Rent2Own-Merchant\packages\Rg.Plugins.Popup.1.1.5.180\lib\Xamarin.IOS\Rg.Plugins.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.IOS">
+      <HintPath>..\..\Rent2Own-Merchant\packages\Rg.Plugins.Popup.1.1.5.180\lib\Xamarin.IOS\Rg.Plugins.Popup.IOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="DependencyExtended\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DependencyExtended\IFileHelperExtended.cs" />
+    <Compile Include="SupportXFLiteSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SupportXFLite\SupportXFLite.csproj">

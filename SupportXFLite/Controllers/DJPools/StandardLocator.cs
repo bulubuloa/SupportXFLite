@@ -3,12 +3,12 @@ using Autofac;
 
 namespace SupportXFLite.Controllers.DJPools
 {
-    public class BaseLocator
+    public class StandardLocator : IStandardLocator
     {
         private IContainer container;
         protected ContainerBuilder PoolBuilder;
 
-        public BaseLocator()
+        public StandardLocator()
         {
             Initialize();
         }
@@ -16,12 +16,6 @@ namespace SupportXFLite.Controllers.DJPools
         private void Initialize()
         {
             PoolBuilder = new ContainerBuilder();
-            CreatePoolObject();
-        }
-
-        protected virtual void CreatePoolObject()
-        {
-
         }
 
         public T Resolve<T>()
