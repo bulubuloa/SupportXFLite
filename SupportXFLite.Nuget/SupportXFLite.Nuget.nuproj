@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F6796F8-A8F7-4876-8577-E0266A27CFA0}</ProjectGuid>
+    <Description>A simple MVVM Framework for Xamarin Forms, it helps you to quick setup a new Xamarin Forms project</Description>
+    <PackageId>SupportXFLite</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>QuachHoang</Authors>
+    <DevelopmentDependency>false</DevelopmentDependency>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SupportXFLite.Nuget</RootNamespace>
+    <UsePartialTypes>false</UsePartialTypes>
+    <AssemblyName>SupportXFLite.Nuget</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <Owners>QuachHoang</Owners>
+    <Copyright>QuachHoang@2018</Copyright>
+    <PackageTags>Xamarin.Forms, Xamarin, Xamarin.Android, Xamarin.iOS, MVVM, Framework</PackageTags>
+    <Title>SupportXFLite</Title>
+    <Summary>A simple MVVM Framework for Xamarin Forms, it helps you to quick setup a new Xamarin Forms project</Summary>
+    <PackageProjectUrl>https://github.com/bulubuloa/SupportXFLite</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/bulubuloa/SupportXFLite</PackageLicenseUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <OutputPath>bin\Debug</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging">
+      <Version>0.2.0</Version>
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SupportXFLite\SupportXFLite.csproj">
+      <Project>{2D594775-8D82-46D8-ABDC-F896A6287C08}</Project>
+      <Name>SupportXFLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SupportXFLite.Droid\SupportXFLite.Droid.csproj">
+      <Project>{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}</Project>
+      <Name>SupportXFLite.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SupportXFLite.iOS\SupportXFLite.iOS.csproj">
+      <Project>{9079034E-F7AE-41EC-87C2-452BDFCA328D}</Project>
+      <Name>SupportXFLite.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets')" />
+</Project>
