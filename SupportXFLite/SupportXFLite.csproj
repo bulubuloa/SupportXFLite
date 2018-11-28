@@ -30,6 +30,8 @@
     <Folder Include="ProjectArchitect\AESProjects\API\" />
     <Folder Include="SyncData\" />
     <Folder Include="SyncData\Attributes\" />
+    <Folder Include="Controllers\Logger\" />
+    <Folder Include="Controllers\Animations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />

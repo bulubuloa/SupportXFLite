@@ -3,22 +3,13 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using SupportXFLite.Controllers.Logger;
 using SupportXFLite.Models;
 using Xamarin.Forms;
 
 namespace SupportXFLite.ViewModels
 {
-    public interface IHandleViewAppearing
-    {
-        Task OnViewAppearingAsync(VisualElement view);
-    }
-
-    public interface IHandleViewDisappearing
-    {
-        Task OnViewDisappearingAsync(VisualElement view);
-    }
-
-    public abstract class BaseViewModel : BindableBaseModel, IHandleViewDisappearing, IHandleViewAppearing
+    public abstract partial class BaseViewModel : BindableBaseModel, IHandleViewDisappearing, IHandleViewAppearing, ILogger
     {
         /*
          * Validations
@@ -88,7 +79,7 @@ namespace SupportXFLite.ViewModels
             return Task.FromResult(true);
         }
 
-        protected void DebugMessage(string content, string title = "")
+        public void DebugMessage(string content, string title = "")
         {
             Debug.WriteLine(title + ": " + content);
         }
@@ -105,7 +96,7 @@ namespace SupportXFLite.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.StackTrace);
+                DebugMessage(ex.StackTrace);
             }
             finally
             {
@@ -156,24 +147,25 @@ namespace SupportXFLite.ViewModels
             }
         }
 
+        protected virtual void NavigationToPage<TViewModel>(bool animatte = true) where TViewModel : BaseViewModel
+        {
+        }
+
+        protected virtual void NavigationToPage<TViewModel>(object parameter, bool animatte = true) where TViewModel : BaseViewModel
+        {
+        }
+
+        protected virtual void NavigationToPopup<TViewModel>(bool animatte = true) where TViewModel : BaseViewModel
+        {
+        }
+
+        protected virtual void NavigationToPopup<TViewModel>(object parameter, bool animatte = true) where TViewModel : BaseViewModel
+        {
+        }
+
         public BaseViewModel()
         {
 
-        }
-
-        public virtual Task InitializeAsync(object navigationData)
-        {
-            return Task.FromResult(false);
-        }
-
-        public virtual Task OnViewAppearingAsync(VisualElement view)
-        {
-            return Task.FromResult(true);
-        }
-
-        public virtual Task OnViewDisappearingAsync(VisualElement view)
-        {
-            return Task.FromResult(true);
         }
     }
 }
