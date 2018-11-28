@@ -1,66 +1,116 @@
+
 # SupportXFLite
 
 A simple MVVM Framework for Xamarin Forms, it helps you to quick setup a new Xamarin Forms project. I used this library in my personal project and my company also every day :)
 
 Available on NuGet: [![NuGet](https://img.shields.io/badge/nuget%20supportwidgetxf-v1.2.0-blue.svg)](https://www.nuget.org/packages/SupportWidgetXF/)
 
-Add assembly references
+## GETTING STARTED
 
-    xmlns:ultimateChart="clr-namespace:SupportWidgetXF.Widgets;assembly=SupportWidgetXF"
+### 1.  Create class manager you project, it based on **SupportProjectXF** class
+```
+public class InitializeProject : SupportProjectXF<BaseLocator, BaseNavigationService>
+    {
+        private async Task<SupportNavigationPageWidget> InitilizeNavigationPageWithPage(Xamarin.Forms.Page page)
+        {
+            var navigationPageWidget = new SupportNavigationPageWidget()
+            {
+                BarTextColor = Color.White,
+                BarBackgroundColor = Color.FromHex("#005e93")
+            };
+            if (page != null)
+                await navigationPageWidget.PushAsync(page);
+            return navigationPageWidget;
+        }
 
+		/*  
+		*  Custom your app flow view
+		*/
+        public async override Task SetupNavigationMap(Page page, Type viewModelType, object parameter, bool animate)
+        {
+            if (page is AES_LoginView)
+            {
+                if (CurrentApplication.MainPage is SupportNavigationPageWidget)
+                {
+                    var currentNavigation = CurrentApplication.MainPage as SupportNavigationPageWidget;
+                    await currentNavigation.PopToRootAsync(true);
+                }
+                else
+                {
+                    CurrentApplication.MainPage = await InitilizeNavigationPageWithPage(page);
+                }
+            }
+            else if (CurrentApplication.MainPage is SupportNavigationPageWidget)
+            {
+                var currentNavigationX = (SupportNavigationPageWidget)CurrentApplication.MainPage;
+                var currentPage = currentNavigationX.CurrentPage;
+
+                if (page.GetType() != currentNavigationX.CurrentPage.GetType())
+                        await currentNavigationX.PushAsync(page, true);
+            }
+            else
+            {
+                CurrentApplication.MainPage = await InitilizeNavigationPageWithPage(page);
+            }
+        }
+		
+		/*  
+		*  Register your controller, based on dependency injection
+		*/
+        protected override void RegisterController(BaseLocator locator)
+        {
+            locator.Register<IAESAPIService, AESAPIService>();
+        }
+        
+		/*  
+		*  Register your viewmodel or any class, based on dependency injection
+		*/
+        protected override void RegisterViewModel(BaseLocator locator)
+        {
+            locator.Register<AES_LoginViewModel>();
+            locator.Register<AES_MainViewModel>();
+        }
+		
+		/*  
+		*  map your view page with viewmodel
+		*/
+        protected override void MappingViewAndViewModel(BaseNavigationService navigationManager)
+        {
+            navigationManager.Map<AES_LoginViewModel, AES_LoginView>();
+            navigationManager.Map<AES_MainViewModel, AES_MainView>();
+        }
+    }
+```
+
+
+### 2. Create new object of Manager
+- Open App.xaml.cs and add it to content
+```
+	 public  static  InitializeProject  Manager;  
+	 static  App()  
+	 {  
+		Manager  =  new  InitializeProject();  
+	 }
+```
+- In the contructor of App
+```
+	 public  App()  
+	{  
+		InitializeComponent();  
+		
+		//Open first screen
+		var  navigationService  =  Manager.NavigationManager;  
+		navigationService.NavigateToAsync<AES_LoginViewModel>(true);  
+	}
+```
+
+### 3. Setup for each platforms
 Setup for iOS project (add to AppDelegate before LoadApplication)
 
-    SupportWidgetXFSetup.Initialize();
+    SupportXFLiteSetup.Initialize(this);
 
 Setup for Android project (add to MainActivity before LoadApplication)
 
-    SupportWidgetXFSetup.Initialize(this);
-## Support Widget Package
+    SupportXFLiteSetup.Initialize(this, savedInstanceState);;
 
- - SupportAutoComplete **(Complete)**
- - SupportResultList **(Complete)**
- - SupportDropList **(Complete)**
- - SupportEntry **(Complete)**
- - SupportButton  **(Complete)**
- - SupportActionMenu  **(Complete)**
- - SupportBindableStackLayout  **(Complete)**
- - SupportFlowLayout  **(Complete)**
- - SupportSearchView  **(Complete)**
- - SupportShadowView  **(Complete)**
- - SupportGradientView  **(Complete)**
- - SupportMapView  **(Complete)**
- - SupportRadioButton  **(Complete)**
- - SupportCalendarView  **(Complete)**
   
-<table>
-	<tr>
-		<td>Controls</td>
-		<td>Screenshots</td>
-	</tr>
-	<tr>
-		<td>
-			<b>SupportAutocomplete</b> with 4 row templates: support binding Itemsource, etc..
-			<ul>
-				<li>Single Title</li>
-				<li>Title With Description</li>
-				<li>Icon with Title</li>
-				<lip>FullText with Icon</li>
-				<li>Autocomplete source from API</li>
-			</ul>
-		</td>
-		<td><img src="https://github.com/bulubuloa/SupportWidgetXF/blob/master/ScreenShots/demo_autocomplete.gif" width="324" height="639" /></td>
-	</tr>
-	<tr>
-		<td>
-			<b>SupportDropList</b> with 4 row templates: support binding Itemsource, multi select
-			<ul>
-				<li>Single Title</li>
-				<li>Title With Description</li>
-				<li>Icon with Title</li>
-				<lip>FullText with Icon</li>
-				<li>Autocomplete source from API</li>
-			</ul>
-		</td>
-		<td><img src="https://github.com/bulubuloa/SupportWidgetXF/blob/master/ScreenShots/demo_droplist.gif" width="300" height="472" /></td>
-	</tr>
-</table>
