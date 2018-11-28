@@ -115,3 +115,5 @@ Setup for Android project (add to MainActivity before LoadApplication)
     SupportXFLiteSetup.Initialize(this, savedInstanceState);;
 
   
+### DEMO APP
+https://github.com/bulubuloa/SupportXFLite-DemoAPP
