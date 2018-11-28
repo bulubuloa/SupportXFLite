@@ -147,22 +147,6 @@ namespace SupportXFLite.ViewModels
             }
         }
 
-        protected virtual void NavigationToPage<TViewModel>(bool animatte = true) where TViewModel : BaseViewModel
-        {
-        }
-
-        protected virtual void NavigationToPage<TViewModel>(object parameter, bool animatte = true) where TViewModel : BaseViewModel
-        {
-        }
-
-        protected virtual void NavigationToPopup<TViewModel>(bool animatte = true) where TViewModel : BaseViewModel
-        {
-        }
-
-        protected virtual void NavigationToPopup<TViewModel>(object parameter, bool animatte = true) where TViewModel : BaseViewModel
-        {
-        }
-
         public BaseViewModel()
         {
 

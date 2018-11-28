@@ -6,27 +6,31 @@ namespace SupportXFLite.ViewModels
 {
     public abstract partial class BaseViewModel
     {
-        public abstract TNavigationService IF_GetNavigationService<TNavigationService>() where TNavigationService : IBasicNavigationService;
+        public abstract IStandardNavigationService IF_GetNavigationService();
 
-        protected virtual void NavigationToPage<TViewModel>(bool animatte = true) where TViewModel : BaseViewModel
+        protected virtual async Task NavigationToPage<TViewModel>(bool animatte = true) where TViewModel : BaseViewModel
         {
-            IF_GetNavigationService<IBasicNavigationService>().NavigateToAsync<TViewModel>(animatte);
+             await IF_GetNavigationService().NavigateToAsync<TViewModel>(animatte);
         }
 
-        protected virtual void NavigationToPage<TViewModel>(object parameter, bool animatte = true) where TViewModel : BaseViewModel
+        protected virtual async Task NavigationToPage<TViewModel>(object parameter, bool animatte = true) where TViewModel : BaseViewModel
         {
-            IF_GetNavigationService<IBasicNavigationService>().NavigateToAsync<TViewModel>(parameter,animatte);
+            await IF_GetNavigationService().NavigateToAsync<TViewModel>(parameter,animatte);
         }
 
-        protected virtual void NavigationToPopup<TViewModel>(bool animatte = true) where TViewModel : BaseViewModel
+        protected virtual async Task NavigationToPopup<TViewModel>(bool animatte = true) where TViewModel : BaseViewModel
         {
-            IF_GetNavigationService<IBasicNavigationService>().NavigateToPopupAsync<TViewModel>(animatte);
+            await IF_GetNavigationService().NavigateToPopupAsync<TViewModel>(animatte);
         }
 
-        protected virtual void NavigationToPopup<TViewModel>(object parameter, bool animatte = true) where TViewModel : BaseViewModel
+        protected virtual async Task NavigationToPopup<TViewModel>(object parameter, bool animatte = true) where TViewModel : BaseViewModel
         {
-            IF_GetNavigationService<IBasicNavigationService>().NavigateToPopupAsync<TViewModel>(parameter,animatte);
+            await IF_GetNavigationService().NavigateToPopupAsync<TViewModel>(parameter,animatte);
         }
 
+        protected virtual async Task NavigationToPreviousPage(bool animate = true)
+        {
+            await IF_GetNavigationService().NavigateBackAsync(animate);
+        }
     }
 }

@@ -1,17 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using SupportXFLite.Controllers.DJPools;
 using SupportXFLite.Controllers.Navigations;
 using Xamarin.Forms;
 
 namespace SupportXFLite.Controllers
 {
-    public abstract class SupportProjectXF<TLocator,TNavigationService>
+    public abstract class SupportProjectXF<TLocator,TNavigationService> : ISupportProjectXF
         where TLocator : IStandardLocator
         where TNavigationService : IStandardNavigationService
     {
 
         public TLocator LocatorManager;
         public TNavigationService NavigationManager;
+        public Dictionary<string, object> PoolStateSaved;
 
         protected Application CurrentApplication
         {
@@ -22,21 +25,24 @@ namespace SupportXFLite.Controllers
 
         protected abstract void RegisterViewModel(TLocator locator);
 
+        protected abstract void MappingViewAndViewModel(TNavigationService navigationManager);
 
-        //public abstract void SetupNavigationMap(Type viewModelType, object parameter, bool animate);
+        public abstract Task SetupNavigationMap(Page page, Type viewModelType, object parameter, bool animate);
 
         protected virtual void SetupFinish()
         {
+            PoolStateSaved = new Dictionary<string, object>();
             LocatorManager.Build();
         }
 
         private void Initialize()
         {
             LocatorManager = (TLocator)Activator.CreateInstance(typeof(TLocator));
-            NavigationManager = (TNavigationService)Activator.CreateInstance(typeof(TNavigationService),LocatorManager);
+            NavigationManager = (TNavigationService)Activator.CreateInstance(typeof(TNavigationService),LocatorManager,this);
 
             RegisterController(LocatorManager);
             RegisterViewModel(LocatorManager);
+            MappingViewAndViewModel(NavigationManager);
 
             SetupFinish();
         }

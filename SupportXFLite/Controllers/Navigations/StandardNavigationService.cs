@@ -13,25 +13,35 @@ namespace SupportXFLite.Controllers.Navigations
     {
         protected readonly Dictionary<Type, Type> poolViewModel;
         protected readonly IStandardLocator standardLocator;
+        protected readonly ISupportProjectXF supportProjectXF;
 
         protected Application CurrentApplication
         {
             get { return Application.Current; }
         }
 
-        public StandardNavigationService(IStandardLocator _standardLocator)
+        public StandardNavigationService(IStandardLocator _standardLocator, ISupportProjectXF _supportProjectXF)
         {
             standardLocator = _standardLocator;
+            supportProjectXF = _supportProjectXF;
             poolViewModel = new Dictionary<Type, Type>();
             Initialize();
         }
 
         private void Initialize()
         {
-            CreatePoolViewModel();
+            //CreatePoolViewModel();
         }
 
-        public abstract void CreatePoolViewModel();
+        //public abstract void CreatePoolViewModel();
+
+        public void Map<TViewModel, TView>() where TViewModel : BaseViewModel where TView : Page
+        {
+            if(poolViewModel!=null)
+            {
+                poolViewModel.Add(typeof(TViewModel), typeof(TView));
+            }
+        }
 
         public Task InitializeAsync()
         {
@@ -76,7 +86,7 @@ namespace SupportXFLite.Controllers.Navigations
             }
         }
 
-        protected abstract Task NavigationMapping(Page page, Type viewModelType, object parameter, bool animate);
+        //protected abstract Task NavigationMapping(Page page, Type viewModelType, object parameter, bool animate);
 
 
         protected virtual async Task InternalNavigateToAsync(Type viewModelType, object parameter, bool animate)
@@ -90,7 +100,9 @@ namespace SupportXFLite.Controllers.Navigations
                 ViewModelOfPage.OnViewDisappearingAsync(page);
             };
 
-            await NavigationMapping(page, viewModelType, parameter, animate);
+            await supportProjectXF.SetupNavigationMap(page, viewModelType, parameter, animate);
+
+            //await NavigationMapping(page, viewModelType, parameter, animate);
                
             await ViewModelOfPage.InitializeAsync(parameter);
         }

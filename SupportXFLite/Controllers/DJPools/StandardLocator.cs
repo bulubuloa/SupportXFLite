@@ -3,7 +3,7 @@ using Autofac;
 
 namespace SupportXFLite.Controllers.DJPools
 {
-    public class StandardLocator : IStandardLocator
+    public abstract class StandardLocator : IStandardLocator
     {
         private IContainer container;
         protected ContainerBuilder PoolBuilder;
