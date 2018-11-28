@@ -10,8 +10,8 @@ Available on NuGet: [![NuGet](https://img.shields.io/badge/nuget%20supportwidget
 ### 1.  Create class manager you project, it based on **SupportProjectXF** class
 ```
 public class InitializeProject : SupportProjectXF<BaseLocator, BaseNavigationService>
-    {
-        private async Task<SupportNavigationPageWidget> InitilizeNavigationPageWithPage(Xamarin.Forms.Page page)
+{
+	private async Task<SupportNavigationPageWidget> InitilizeNavigationPageWithPage(Xamarin.Forms.Page page)
         {
             var navigationPageWidget = new SupportNavigationPageWidget()
             {
@@ -23,9 +23,9 @@ public class InitializeProject : SupportProjectXF<BaseLocator, BaseNavigationSer
             return navigationPageWidget;
         }
 
-		/*  
-		*  Custom your app flow view
-		*/
+	/*  
+	*  Custom your app flow view
+	*/
         public async override Task SetupNavigationMap(Page page, Type viewModelType, object parameter, bool animate)
         {
             if (page is AES_LoginView)
@@ -54,32 +54,32 @@ public class InitializeProject : SupportProjectXF<BaseLocator, BaseNavigationSer
             }
         }
 		
-		/*  
-		*  Register your controller, based on dependency injection
-		*/
+	/*  
+	*  Register your controller, based on dependency injection
+	*/
         protected override void RegisterController(BaseLocator locator)
         {
             locator.Register<IAESAPIService, AESAPIService>();
         }
         
-		/*  
-		*  Register your viewmodel or any class, based on dependency injection
-		*/
+	/*  
+	*  Register your viewmodel or any class, based on dependency injection
+	*/
         protected override void RegisterViewModel(BaseLocator locator)
         {
             locator.Register<AES_LoginViewModel>();
             locator.Register<AES_MainViewModel>();
         }
 		
-		/*  
-		*  map your view page with viewmodel
-		*/
+	/*  
+	*  map your view page with viewmodel
+	*/
         protected override void MappingViewAndViewModel(BaseNavigationService navigationManager)
         {
             navigationManager.Map<AES_LoginViewModel, AES_LoginView>();
             navigationManager.Map<AES_MainViewModel, AES_MainView>();
         }
-    }
+}
 ```
 
 
