@@ -112,7 +112,7 @@ Setup for iOS project (add to AppDelegate before LoadApplication)
 
 Setup for Android project (add to MainActivity before LoadApplication)
 
-    SupportXFLiteSetup.Initialize(this, savedInstanceState);;
+    SupportXFLiteSetup.Initialize(this, savedInstanceState);
 
   
 ### DEMO APP
