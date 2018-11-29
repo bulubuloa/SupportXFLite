@@ -116,4 +116,4 @@ Setup for Android project (add to MainActivity before LoadApplication)
 
   
 ### DEMO APP
-https://github.com/bulubuloa/SupportXFLite-DemoAPP
+https://github.com/bulubuloa/DefaultAPP_Lite
