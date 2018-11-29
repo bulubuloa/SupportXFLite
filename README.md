@@ -4,7 +4,7 @@
 A simple MVVM Framework for Xamarin Forms. It helps you to quicksetup a new Xamarin.Forms project and save a lot of your time with a few steps.. I used this library in my personal project and my company also every day :)
 
 #### Available on NuGet
-[![NuGet](https://img.shields.io/badge/Nuget%20SupportXFLite%20v1.0.0-Stable-green.svg)](https://www.nuget.org/packages/SupportXFLite/)
+![Build status](https://ci.appveyor.com/api/projects/status/7g3sppml9ewumr9i/branch/master?svg=true) [![NuGet Badge](https://buildstats.info/nuget/SupportXFLite)](https://www.nuget.org/packages/SupportXFLite/)
 
 ## GETTING STARTED
 
