@@ -1,23 +1,20 @@
 ﻿<Properties StartupConfiguration="{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}|Default">
-  <MonoDevelop.Ide.ItemProperties.SupportXFLite.Nuget FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.SupportXFLite.iOS FirstBuild="True" />
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SupportXFLite" expanded="True">
-            <Node name="SupportXFLite.Droid" expanded="True" selected="True" />
-            <Node name="SupportXFLite.Nuget" expanded="True" />
+            <Node name="SupportXFLite" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.SupportXFLite.Droid PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.SupportXFLite.Droid PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
 </Properties>

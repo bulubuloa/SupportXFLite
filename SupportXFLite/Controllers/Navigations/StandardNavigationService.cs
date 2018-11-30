@@ -116,7 +116,7 @@ namespace SupportXFLite.Controllers.Navigations
             return poolViewModel[viewModelType];
         }
 
-        protected Page CreateAndBindPage(Type viewModelType, object parameter)
+        public Page CreateAndBindPage(Type viewModelType, object parameter)
         {
             Type pageType = GetPageTypeForViewModel(viewModelType);
 

@@ -20,7 +20,6 @@
     <Folder Include="Controllers\Validations\" />
     <Folder Include="Controllers\Validations\Rules\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Widgets\" />
     <Folder Include="DependencyServices\" />
     <Folder Include="Controllers\DJPools\" />
     <Folder Include="Controllers\Navigations\" />
@@ -35,7 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="Autofac" Version="4.8.1" />
     <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.180" />
     <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />

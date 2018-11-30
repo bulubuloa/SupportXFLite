@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using SupportXFLite.ViewModels;
+using Xamarin.Forms;
 
 namespace SupportXFLite.Controllers.Navigations
 {
@@ -13,5 +14,6 @@ namespace SupportXFLite.Controllers.Navigations
         Task NavigateToPopupAsync<TViewModel>(object parameter, bool animate) where TViewModel : BaseViewModel;
         Task NavigateBackAsync(bool animate);
         void Map<TViewModel, TView>() where TViewModel : BaseViewModel where TView : Xamarin.Forms.Page;
+        Page CreateAndBindPage(Type viewModelType, object parameter);
     }
 }

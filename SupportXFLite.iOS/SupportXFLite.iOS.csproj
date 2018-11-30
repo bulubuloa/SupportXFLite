@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.props')" />
   <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props')" />
   <Import Project="..\..\XFLite\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.props" Condition="Exists('..\..\XFLite\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.props')" />
   <PropertyGroup>
@@ -49,25 +50,30 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\..\XFLite\packages\Xamarin.Forms.3.4.0.1008975\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1008975\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\..\XFLite\packages\Xamarin.Forms.3.4.0.1008975\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1008975\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform.iOS">
-      <HintPath>..\..\XFLite\packages\Xamarin.Forms.3.4.0.1008975\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1008975\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\..\XFLite\packages\Xamarin.Forms.3.4.0.1008975\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\XFLite\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1008975\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Rg.Plugins.Popup">
-      <HintPath>..\..\Rent2Own-Merchant\packages\Rg.Plugins.Popup.1.1.5.180\lib\Xamarin.IOS\Rg.Plugins.Popup.dll</HintPath>
+      <HintPath>..\packages\Rg.Plugins.Popup.1.1.5.180\lib\Xamarin.IOS\Rg.Plugins.Popup.dll</HintPath>
     </Reference>
     <Reference Include="Rg.Plugins.Popup.IOS">
-      <HintPath>..\..\Rent2Own-Merchant\packages\Rg.Plugins.Popup.1.1.5.180\lib\Xamarin.IOS\Rg.Plugins.Popup.IOS.dll</HintPath>
+      <HintPath>..\packages\Rg.Plugins.Popup.1.1.5.180\lib\Xamarin.IOS\Rg.Plugins.Popup.IOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.4.8.1\lib\netstandard1.1\Autofac.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -91,4 +97,5 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\XFLite\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.targets" Condition="Exists('..\..\XFLite\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.targets')" />
   <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1008975\build\Xamarin.Forms.targets')" />
 </Project>

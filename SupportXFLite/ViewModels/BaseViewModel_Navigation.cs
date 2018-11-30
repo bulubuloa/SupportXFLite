@@ -7,6 +7,8 @@ namespace SupportXFLite.ViewModels
     public abstract partial class BaseViewModel
     {
         public abstract IStandardNavigationService IF_GetNavigationService();
+        public abstract TModel ResolveViewModel<TModel>() where TModel : BaseViewModel;
+        public abstract TModel ResolveObject<TModel>() where TModel : class;
 
         protected virtual async Task NavigationToPage<TViewModel>(bool animatte = true) where TViewModel : BaseViewModel
         {
