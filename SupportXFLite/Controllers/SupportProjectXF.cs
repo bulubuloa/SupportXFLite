@@ -12,9 +12,9 @@ namespace SupportXFLite.Controllers
         where TNavigationService : IStandardNavigationService
     {
 
-        public TLocator LocatorManager;
-        public TNavigationService NavigationManager;
-        public Dictionary<string, object> PoolStateSaved;
+        private TLocator LocatorManager;
+        private TNavigationService NavigationManager;
+        private Dictionary<string, object> PoolStateSaved;
 
         protected Application CurrentApplication
         {
@@ -45,6 +45,16 @@ namespace SupportXFLite.Controllers
             MappingViewAndViewModel(NavigationManager);
 
             SetupFinish();
+        }
+
+        public IStandardLocator GetLocator()
+        {
+            return LocatorManager;
+        }
+
+        public IStandardNavigationService GetNavigationService()
+        {
+            return NavigationManager;
         }
 
         public SupportProjectXF()

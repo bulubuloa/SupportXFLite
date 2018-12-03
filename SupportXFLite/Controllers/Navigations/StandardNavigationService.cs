@@ -35,7 +35,7 @@ namespace SupportXFLite.Controllers.Navigations
 
         //public abstract void CreatePoolViewModel();
 
-        public void Map<TViewModel, TView>() where TViewModel : BaseViewModel where TView : Page
+        public void Map<TViewModel, TView>() where TViewModel : XFLiteBaseViewModel where TView : Page
         {
             if(poolViewModel!=null)
             {
@@ -56,25 +56,25 @@ namespace SupportXFLite.Controllers.Navigations
             }
         }
 
-        public Task NavigateToAsync<TViewModel>(bool animate) where TViewModel : BaseViewModel
+        public Task NavigateToAsync<TViewModel>(bool animate) where TViewModel : XFLiteBaseViewModel
         {
             return InternalNavigateToAsync(typeof(TViewModel), null, animate);
         }
 
-        public Task NavigateToAsync<TViewModel>(object parameter, bool animate) where TViewModel : BaseViewModel
+        public Task NavigateToAsync<TViewModel>(object parameter, bool animate) where TViewModel : XFLiteBaseViewModel
         {
             return InternalNavigateToAsync(typeof(TViewModel), parameter, animate);
         }
 
-        public Task NavigateToPopupAsync<TViewModel>(bool animate) where TViewModel : BaseViewModel
+        public Task NavigateToPopupAsync<TViewModel>(bool animate) where TViewModel : XFLiteBaseViewModel
         {
             return NavigateToPopupAsync<TViewModel>(null, animate);
         }
 
-        public async Task NavigateToPopupAsync<TViewModel>(object parameter, bool animate) where TViewModel : BaseViewModel
+        public async Task NavigateToPopupAsync<TViewModel>(object parameter, bool animate) where TViewModel : XFLiteBaseViewModel
         {
             var page = CreateAndBindPage(typeof(TViewModel), parameter);
-            await(page.BindingContext as BaseViewModel).InitializeAsync(parameter);
+            await(page.BindingContext as XFLiteBaseViewModel).InitializeAsync(parameter);
 
             if (page is PopupPage)
             {
@@ -92,7 +92,7 @@ namespace SupportXFLite.Controllers.Navigations
         protected virtual async Task InternalNavigateToAsync(Type viewModelType, object parameter, bool animate)
         {
             Page page = CreateAndBindPage(viewModelType, parameter);
-            var ViewModelOfPage = page.BindingContext as BaseViewModel;
+            var ViewModelOfPage = page.BindingContext as XFLiteBaseViewModel;
             page.Appearing += (object sender, EventArgs e) => {
                 ViewModelOfPage.OnViewAppearingAsync(page);
             };
@@ -126,7 +126,7 @@ namespace SupportXFLite.Controllers.Navigations
             }
 
             Page page = Activator.CreateInstance(pageType) as Page;
-            var viewModel = standardLocator.Resolve(viewModelType) as BaseViewModel;
+            var viewModel = standardLocator.Resolve(viewModelType) as XFLiteBaseViewModel;
             page.BindingContext = viewModel;
 
             return page;

@@ -1,14 +1,10 @@
 ﻿<Properties StartupConfiguration="{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}|Default">
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="SupportXFLite" expanded="True">
-            <Node name="SupportXFLite" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
+  <MonoDevelop.Ide.Workbench ActiveDocument="SupportXFLite/ViewModels/XFLiteBaseViewModel_Navigation.cs">
+    <Files>
+      <File FileName="SupportXFLite/Controllers/DJPools/IStandardLocator.cs" Line="4" Column="38" />
+      <File FileName="SupportXFLite/Controllers/SupportProjectXF.cs" Line="57" Column="37" />
+      <File FileName="SupportXFLite/ViewModels/XFLiteBaseViewModel_Navigation.cs" Line="43" Column="10" />
+    </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.SupportXFLite.Droid PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
