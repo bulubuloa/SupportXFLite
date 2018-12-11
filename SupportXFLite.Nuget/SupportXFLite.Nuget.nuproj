@@ -7,7 +7,7 @@
     <ProjectGuid>{4F6796F8-A8F7-4876-8577-E0266A27CFA0}</ProjectGuid>
     <Description>A simple MVVM Framework for Xamarin Forms, it helps you to quick setup a new Xamarin Forms project</Description>
     <PackageId>SupportXFLite</PackageId>
-    <PackageVersion>1.2.1-alpha</PackageVersion>
+    <PackageVersion>1.2.2-alpha</PackageVersion>
     <Authors>QuachHoang</Authors>
     <DevelopmentDependency>false</DevelopmentDependency>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

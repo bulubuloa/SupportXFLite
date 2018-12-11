@@ -21,7 +21,12 @@ namespace SupportXFLite.Controllers.API.Restful
             {
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             }
-            return await BasicConsumeAPI<TResponse>(requestMethod, url, requestParameters, httpClient);
+            var response = await BasicConsumeAPI<TResponse>(requestMethod, url, requestParameters, httpClient);
+            /*
+             *Logic here 
+             */
+
+            return response.ObjectSuccess;
         }
 
         public virtual async Task<TResponse> RequestAsyncCredential<TResponse, TRequest>(RequestMethod requestMethod, string url, TRequest requestParameters, string apiUsername, string apiPassword) where TRequest : StandardRequestRestfulBaseModel
@@ -35,7 +40,20 @@ namespace SupportXFLite.Controllers.API.Restful
                 }
             };
             var httpClient = GetHttpClient(handler);
-            return await BasicConsumeAPI<TResponse>(requestMethod, url, requestParameters, httpClient);
+            var response = await BasicConsumeAPI<TResponse>(requestMethod, url, requestParameters, httpClient);
+            /*
+             *Logic here 
+             */
+            return response.ObjectSuccess;
+        }
+
+        public virtual async Task<TResponse> RequestAsyncBasic<TResponse, TRequest>(RequestMethod requestMethod, string url, TRequest requestParameters) where TRequest : StandardRequestRestfulBaseModel
+        {
+            var response = await BasicConsumeAPI<TResponse>(requestMethod, url, requestParameters, GetHttpClient());
+            /*
+             *Logic here 
+             */
+            return response.ObjectSuccess;
         }
     }
 }

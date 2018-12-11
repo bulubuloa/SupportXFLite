@@ -1,7 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using SupportXFLite.Models.API.Request;
-using SupportXFLite.Models.API.Response;
 
 namespace SupportXFLite.Controllers.API.Restful
 {
@@ -9,5 +7,6 @@ namespace SupportXFLite.Controllers.API.Restful
     {
         Task<TResponse> RequestAsyncToken<TResponse, TRequest>(RequestMethod requestMethod, string url, TRequest requestParameters,string token = "") where TRequest : StandardRequestRestfulBaseModel;
         Task<TResponse> RequestAsyncCredential<TResponse,TRequest>(RequestMethod requestMethod, string url, TRequest requestParameters, string apiUsername, string apiPassword) where TRequest : StandardRequestRestfulBaseModel;
+        Task<TResponse> RequestAsyncBasic<TResponse, TRequest>(RequestMethod requestMethod, string url, TRequest requestParameters) where TRequest : StandardRequestRestfulBaseModel;
     }
 }

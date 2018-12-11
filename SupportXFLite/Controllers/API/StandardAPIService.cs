@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using SupportXFLite.Models.API.Request;
+using SupportXFLite.Models.API.Response;
 
 namespace SupportXFLite.Controllers.API
 {
-    public class StandardAPIService : BaseController, IStandardAPIService
+    public abstract class StandardAPIService : BaseController, IStandardAPIService
     {
         protected readonly JsonSerializerSettings jsonSerializerSettings;
 
@@ -24,22 +25,22 @@ namespace SupportXFLite.Controllers.API
             jsonSerializerSettings.Converters.Add(new StringEnumConverter());
         }
 
-        public virtual async Task<TResponse> RequestGetAsync<TResponse>(string url, APIRequestBaseModel requestParameters)
-        {
-            return await RequestAsync<TResponse>(RequestMethod.GET,url,requestParameters);
-        }
-
-        public virtual async Task<TResponse> RequestPutAsync<TResponse>(string url, APIRequestBaseModel requestParameters)
-        {
-            return await RequestAsync<TResponse>(RequestMethod.PUT, url, requestParameters);
-        }
-
-        public virtual async Task<TResponse> RequestPostAsync<TResponse>(string url, APIRequestBaseModel requestParameters)
+        public virtual async Task<APIStandardResponse<TResponse>> RequestPostAsync<TResponse>(string url, APIRequestBaseModel requestParameters)
         {
             return await RequestAsync<TResponse>(RequestMethod.POST, url, requestParameters);
         }
 
-        public virtual async Task<TResponse> RequestAsync<TResponse>(RequestMethod requestMethod, string url, APIRequestBaseModel requestParameters)
+        public virtual async Task<APIStandardResponse<TResponse>> RequestGetAsync<TResponse>(string url, APIRequestBaseModel requestParameters)
+        {
+            return await RequestAsync<TResponse>(RequestMethod.GET, url, requestParameters);
+        }
+
+        public virtual async Task<APIStandardResponse<TResponse>> RequestPutAsync<TResponse>(string url, APIRequestBaseModel requestParameters)
+        {
+            return await RequestAsync<TResponse>(RequestMethod.PUT, url, requestParameters);
+        }
+
+        public virtual async Task<APIStandardResponse<TResponse>> RequestAsync<TResponse>(RequestMethod requestMethod, string url, APIRequestBaseModel requestParameters)
         {
             return await BasicConsumeAPI<TResponse>(requestMethod,url,requestParameters,GetHttpClient());
         }
@@ -54,11 +55,11 @@ namespace SupportXFLite.Controllers.API
             return new System.Net.Http.HttpClient(delegatingHandler);
         }
 
-        protected async Task<TResponse> BasicConsumeAPI<TResponse>(RequestMethod requestMethod, string requestURL, APIRequestBaseModel requestParams, System.Net.Http.HttpClient httpClientAsync)
+        protected virtual async Task<APIStandardResponse<TResponse>> BasicConsumeAPI<TResponse>(RequestMethod requestMethod, string requestURL, APIRequestBaseModel requestParams, System.Net.Http.HttpClient httpClientAsync)
         {
             Exception exception = null;
-            TResponse response = default(TResponse);
-            bool IsSuccess = false;
+            APIStandardResponse<TResponse> aPIStandardResponse = (APIStandardResponse<TResponse>)Activator.CreateInstance(typeof(APIStandardResponse<TResponse>));
+
             try
             {
                 using (var cts = new CancellationTokenSource())
@@ -75,7 +76,6 @@ namespace SupportXFLite.Controllers.API
                         if (requestMethod == RequestMethod.GET)
                         {
                             var paramete = requestParams.Get_GetParamsRequest();
-                            DebugMessage(requestURL + paramete);
                             httpResponse = await httpClient.GetAsync(requestURL + paramete, cts.Token);
                         }
                         /*
@@ -84,8 +84,6 @@ namespace SupportXFLite.Controllers.API
                         else if (requestMethod == RequestMethod.POST)
                         {
                             var paramete = requestParams.Get_PostParamsRequest();
-                            DebugMessage(requestURL);
-                            DebugMessage(paramete, "Parameters");
                             httpResponse = await httpClient.PostAsync(requestURL, new StringContent(paramete, Encoding.UTF8, "application/json"), cts.Token);
                         }
                         /*
@@ -94,29 +92,27 @@ namespace SupportXFLite.Controllers.API
                         else if (requestMethod == RequestMethod.PUT)
                         {
                             var paramete = requestParams.Get_PutParamsRequest();
-                            DebugMessage(requestURL);
-                            DebugMessage(paramete, "Parameters");
                             httpResponse = await httpClient.PutAsync(requestURL, new StringContent(paramete, Encoding.UTF8, "application/json"), cts.Token);
                         }
 
                         /*
                          * Process reponse after request
                          */
-                        if (httpResponse.IsSuccessStatusCode)
+
+
+                        if(httpResponse != null)
                         {
-                            var responseRaw = httpResponse.Content.ReadAsStringAsync().Result;
-                            if (responseRaw.Length < 1000)
-                                DebugMessage(responseRaw, "Response");
+                            aPIStandardResponse.ObjectRaw = httpResponse.Content.ReadAsStringAsync().Result;
+
+                            if (httpResponse.IsSuccessStatusCode)
+                            {
+                                aPIStandardResponse.RequestOK = true;
+                                aPIStandardResponse.ObjectSuccess = await Task.Run(() => JsonConvert.DeserializeObject<TResponse>(aPIStandardResponse.ObjectRaw, jsonSerializerSettings));
+                            }
                             else
-                                DebugMessage(responseRaw.Substring(0, 999), "Response");
-
-                            response = await Task.Run(() => JsonConvert.DeserializeObject<TResponse>(responseRaw, jsonSerializerSettings));
-
-                            IsSuccess = true;
-                        }
-                        else
-                        {
-                            DebugMessage(httpResponse.StatusCode.ToString(), "Response Code");
+                            {
+                                aPIStandardResponse.StatusCode = httpResponse.StatusCode;
+                            }
                         }
                     }
                 }
@@ -127,19 +123,19 @@ namespace SupportXFLite.Controllers.API
                 DebugMessage(ex.StackTrace, "ParseJsonError");
             }
 
-            if (exception == null && IsSuccess)
+            if (exception == null)
             {
                 /*
                  * Request successfully and return data
                  */
-                return response;
+                return aPIStandardResponse;
             }
             else
             {
                 /*
                  * Request error and return default object of reponse model
                  */
-                return response;
+                return aPIStandardResponse;
             }
         }
     }
