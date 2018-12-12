@@ -9,10 +9,12 @@ namespace SupportXFLite.Models.API.Response
         public string ObjectRaw { set; get; }
         public HttpStatusCode StatusCode { set; get; }
         public bool RequestOK { set; get; }
+        public bool JsonConvertSuccess { set; get; }
 
         public APIStandardResponse()
         {
             RequestOK = false;
+            JsonConvertSuccess = false;
         }
     }
 }

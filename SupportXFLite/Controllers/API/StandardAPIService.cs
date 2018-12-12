@@ -107,7 +107,13 @@ namespace SupportXFLite.Controllers.API
                             if (httpResponse.IsSuccessStatusCode)
                             {
                                 aPIStandardResponse.RequestOK = true;
-                                aPIStandardResponse.ObjectSuccess = await Task.Run(() => JsonConvert.DeserializeObject<TResponse>(aPIStandardResponse.ObjectRaw, jsonSerializerSettings));
+
+                                aPIStandardResponse.ObjectSuccess = await Task.Run(() =>
+                                {
+                                    var result = JsonConvert.DeserializeObject<TResponse>(aPIStandardResponse.ObjectRaw, jsonSerializerSettings);
+                                    aPIStandardResponse.JsonConvertSuccess = true;
+                                    return result;
+                                });
                             }
                             else
                             {

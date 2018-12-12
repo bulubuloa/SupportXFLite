@@ -4,9 +4,6 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SupportXFLite" expanded="True">
-            <Node name="SupportXFLite" expanded="True">
-              <Node name="Controllers" expanded="True" />
-            </Node>
             <Node name="SupportXFLite.Nuget" selected="True" />
           </Node>
         </State>
