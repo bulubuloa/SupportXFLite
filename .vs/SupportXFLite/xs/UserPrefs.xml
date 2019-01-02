@@ -1,18 +1,26 @@
 ﻿<Properties StartupConfiguration="{CC7C30C7-4DAE-4254-AEA7-60669337EAF0}|Default">
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="SupportXFLite" expanded="True">
-            <Node name="SupportXFLite.Nuget" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
+  <MonoDevelop.Ide.Workbench ActiveDocument="SupportXFLite/ViewModels/XFLiteBaseViewModel.cs">
+    <Files>
+      <File FileName="SupportXFLite/Controllers/Animations/IAnimationReferenceView.cs" Line="8" Column="2" />
+      <File FileName="SupportXFLite/Controllers/API/StandardAPIService.cs" Line="54" Column="10" />
+      <File FileName="SupportXFLite/Controllers/API/Restful/RestfulAPIService.cs" Line="32" Column="68" />
+      <File FileName="SupportXFLite/ProjectArchitect/AESProjects/API/AESRequestModel.cs" Line="1" Column="1" />
+      <File FileName="SupportXFLite/ProjectArchitect/AESProjects/API/AESAPIService.cs" Line="1" Column="1" />
+      <File FileName="SupportXFLite/Controllers/DJPools/BaseLocator.cs" Line="1" Column="1" />
+      <File FileName="SupportXFLite/Controllers/DJPools/IStandardLocator.cs" Line="1" Column="1" />
+      <File FileName="SupportXFLite/Controllers/DJPools/StandardLocator.cs" Line="39" Column="10" />
+      <File FileName="SupportXFLite/Controllers/HttpClient/HttpRequestExtensions.cs" Line="25" Column="1" />
+      <File FileName="SupportXFLite/Controllers/Logger/ILogger.cs" Line="1" Column="1" />
+      <File FileName="SupportXFLite/Controllers/Navigations/BaseNavigationService.cs" Line="1" Column="1" />
+      <File FileName="SupportXFLite/Controllers/Navigations/StandardNavigationService.cs" Line="36" Column="54" />
+      <File FileName="SupportXFLite/Controllers/SupportProjectXF.cs" Line="30" Column="39" />
+      <File FileName="SupportXFLite/ViewModels/IHandleViewAppearing.cs" Line="1" Column="1" />
+      <File FileName="SupportXFLite/ViewModels/XFLiteBaseViewModel.cs" Line="1" Column="1" />
+    </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.SupportXFLite.Droid PreferredExecutionTarget="Android.Android_Accelerated_Nougat" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
